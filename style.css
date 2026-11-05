@@ -1,0 +1,145 @@
+:root {
+  --rojo: #c62828;
+  --rojo-oscuro: #7f1d1d;
+  --rojo-claro: #fde8e8;
+  --rojo-suave: #fff5f5;
+  --borde: #c62828;
+  --texto: #2b0a0a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--rojo-suave);
+  color: var(--texto);
+}
+
+.contenedor {
+  max-width: 480px;
+  margin: 60px auto;
+  padding: 0 16px;
+}
+
+h1 {
+  font-size: 1.3rem;
+  margin: 0 0 20px;
+  color: var(--rojo);
+}
+
+/* ---------- Desplegable ---------- */
+.desplegable {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.desplegable-boton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  font: inherit;
+  font-size: 1.1rem;
+  color: var(--rojo-oscuro);
+  background: #ffffff;
+  border: 1.5px solid var(--borde);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.desplegable-boton:hover {
+  background: var(--rojo-claro);
+}
+
+.desplegable-boton:focus-visible,
+.desplegable-lista li:focus-visible {
+  outline: 3px solid var(--rojo-oscuro);
+  outline-offset: 2px;
+}
+
+/* Texto de marcador de posición (estado por defecto) */
+.texto.placeholder {
+  color: #9b4a4a;
+}
+
+/* Flecha: apunta hacia abajo (cerrado) */
+.flecha {
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--rojo);
+  border-bottom: 2px solid var(--rojo);
+  transform: rotate(45deg);
+  margin-top: -4px;
+  transition: transform 0.2s ease;
+}
+
+/* Flecha: apunta hacia arriba (abierto) */
+.desplegable.abierto .flecha {
+  transform: rotate(-135deg);
+  margin-top: 4px;
+}
+
+/* ---------- Lista de opciones ---------- */
+.desplegable-lista {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1.5px solid var(--borde);
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.desplegable-lista[hidden] {
+  display: none;
+}
+
+.desplegable-lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  font-size: 1.05rem;
+  color: var(--texto);
+  border-top: 1.5px solid var(--borde);
+  cursor: pointer;
+}
+
+.desplegable-lista li:first-child {
+  border-top: none;
+}
+
+.desplegable-lista li:hover {
+  background: var(--rojo-claro);
+}
+
+/* Elemento seleccionado: resaltado y con check */
+.desplegable-lista li.seleccionado {
+  background: var(--rojo-claro);
+  color: var(--rojo-oscuro);
+  font-weight: 600;
+}
+
+.desplegable-lista li.seleccionado::after {
+  content: "✓";
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--rojo);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}

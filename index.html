@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desplegable personalizado</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="contenedor">
+      <h1>Desplegable personalizado</h1>
+
+      <div class="desplegable" id="desplegable">
+        <button
+          type="button"
+          class="desplegable-boton"
+          id="boton"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="lista"
+        >
+          <span class="texto placeholder" id="texto">Selecciona un elemento</span>
+          <span class="flecha" aria-hidden="true"></span>
+        </button>
+
+        <ul class="desplegable-lista" id="lista" role="listbox" hidden>
+          <li role="option" tabindex="0">Primer elemento</li>
+          <li role="option" tabindex="0">Segundo elemento</li>
+          <li role="option" tabindex="0">Tercer elemento</li>
+          <li role="option" tabindex="0">Cuarto elemento</li>
+          <li role="option" tabindex="0">Quinto elemento</li>
+        </ul>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
